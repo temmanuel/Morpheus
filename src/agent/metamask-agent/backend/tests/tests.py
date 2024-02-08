@@ -117,9 +117,8 @@ chat_history.extend([HumanMessage(content=question), AIMessage(content=ai_msg)])
 print(chat_history)
 
 #regular expression to find json
-json_str = re.search(r'({.*})', ai_msg, re.DOTALL)
 
-if json_str:
+if json_str := re.search(r'({.*})', ai_msg, re.DOTALL):
     json_data = json_str.group(1)
     
     # Attempt to remove comments (not standard in JSON)
